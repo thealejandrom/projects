@@ -1,0 +1,6 @@
+1: Make a function that will return randomly "Rock", "Paper", or "Scissors"
+    - Create an option object (**options**) to store the possible values the computer can select.
+    - Generate a random number between 1 - 3 and round it to a whole number and assign it to a variable (**choice**)
+    - Depending on the number assigned to (**choice**), assign the value associated to it from the options object.
+    - Return the (**choice**) variable and its valuable to the function.
+2:
