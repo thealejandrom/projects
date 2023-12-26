@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>FizzBuzz Project</title>
+    <meta name="description" content="FizzBuzz Project">
+    <meta name="author" content="Alejandro Magallon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            
+
+            padding: 3em;
+            background-color: gray;
+        }
+        #submittedNum {
+            padding: 1em;
+            font-size: medium;
+        }
+        button {
+            padding: 10px;
+            font-size: medium;
+        }
+
+        #outputContainer {
+            border: 1px solid black;
+            border-radius: 3px;
+            padding: 1em;
+            color: white;
+            font-weight: bold;
+        }
+
+        #outputContainer p {
+            word-break: break-all;
+        }
+
+        #counter {
+            margin-top: 25px;
+        }
+
+        #counter ul {
+            list-style: none;
+        }
+        .stat {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <h1>FizzBuzz Project</h1>
+        <div id="container">
+            <div id="inputContainer">
+                <form>
+                    <input id="submittedNum" type="number">
+                    <button type="button" onclick="fizzbuzzMe()">FizzBuzz Me</button>
+                </form>
+            </div>
+            <div id="outputContainer">
+                <p id="output"></p>
+                <div id="counter">
+                    <ul>
+                        <li style="color: black;">Fizz Count:<span id="fizzCountSpan" class="stat"></span></li>
+                        <li style="color: black;">Buzz Count:<span id="buzzCountSpan" class="stat"></span></li>
+                        <li style="color: black;">FizzBuzz Count:<span id="fizzbuzzCountSpan" class="stat"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fizzbuzzMe() {
+            let output = document.getElementById("output");
+            let number = parseInt(document.getElementById("submittedNum").value);
+            let array = [];
+
+            let fizzCount = 0;
+            let buzzCount = 0;
+            let fizzbuzzCount = 0;
+
+            // Creates a new array with the values according to the constraints
+            if (number > 1500) {
+                alert("That number will break your computer... lower it! 1-500");
+            } else {
+                for (i = 1; i <= number; i++) {
+                console.log(i);
+                if (i % 3 === 0 && i % 5 === 0) {
+                    array.push("FizzBuzz");
+                    fizzbuzzCount++;
+                } else if (i % 3 === 0) {
+                    array.push("Fizz");
+                    fizzCount++;
+                } else if (i % 5 === 0) {
+                    array.push("Buzz");
+                    buzzCount++;
+                } else {
+                    array.push(i);
+                }
+            }
+            // Joins the new array with a comma and spacing
+            output.textContent = array.join(" - ");
+            // Injects count to span tags in html to update the display value
+            document.getElementById("fizzCountSpan").innerText = ` ${fizzCount}`;
+            document.getElementById("buzzCountSpan").innerText = ` ${buzzCount}`;
+            document.getElementById("fizzbuzzCountSpan").innerText = ` ${fizzbuzzCount}`;
+            }
+        }
+    </script>
+</body>
+</html>
