@@ -1,3 +1,67 @@
+let playerSelection = prompt("Enter your choice");
+let computerSelection = getComputerChoice();
+let result;
+let roundCount = 0;
+let playerWonCount = 0;
+let computerWonCount = 0;
+
+
+// This will control each round interation
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        // Result: Draw
+        result = "It's a draw!";
+
+        roundCount++;
+        return result;
+    } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+        // Result: Computer wins
+        result = `Computer won this round! ${computerSelection} beats ${playerSelection}`;
+
+        roundCount++;
+        computerWonCount++;
+        return result;
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        // Result: Player wins
+        result = `You won this round! ${playerSelection} beats ${computerSelection}`;
+
+        roundCount++;
+        playerWonCount++;
+        return result;
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+        // Result: Player wins
+        result = `You won this round! ${playerSelection} beats ${computerSelection}`;
+
+        roundCount++;
+        playerWonCount++;
+        return result;
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        // Result: Computer wins
+        result = `Computer won this round! ${computerSelection} beats ${playerSelection}`;
+
+        roundCount++;
+        computerWonCount++;
+        return result;
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+        // Result: User wins
+        result = `You won this round! ${playerSelection} beats ${computerSelection}`;
+
+        roundCount++;
+        playerWonCount++;
+        return result;
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        // Result: Computer wins
+        result = `Computer won this round! ${computerSelection} beats ${playerSelection}`;
+
+        roundCount++;
+        computerWonCount++;
+        return result;
+    } else {
+        console.log("An error has occured...");
+        return 0;
+    }
+}
+
 // This will generate a random computer selection of "Rock", "Paper", or "Scissors"
 function getComputerChoice() {
     // Declaring our options
